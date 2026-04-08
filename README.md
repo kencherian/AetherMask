@@ -13,38 +13,45 @@ Unlike basic calculators that rely on string manipulation, AetherMask operates d
 
 ### Bitwise Logic Implementation
 The engine utilizes low-level operations to derive network parameters:
-* **Subnet Mask Generation:** $$Mask = (0xFFFFFFFF \ll (32 - CIDR)) \ \& \ 0xFFFFFFFF$$
-* **Network Identification:** $$Network = IP_{int} \ \& \ Mask_{int}$$
-* **Broadcast Calculation:** $$Broadcast = Network \ | \ (\sim Mask_{int} \ \& \ 0xFFFFFFFF)$$
 
----
+* **Subnet Mask Generation:**
+  ```python
+  Mask = (0xFFFFFFFF << (32 - CIDR)) & 0xFFFFFFFF
+  Network Identification:
 
-## 🚀 Key Capabilities
+Python
+Network = IP_int & Mask_int
+Broadcast Calculation:
 
-### 1. Intelligent VLSM Planning
-* **Descending Allocation:** Automatically sorts host requirements to ensure the largest subnets are allocated first, preserving contiguous address space.
-* **Boundary Alignment:** Ensures subnets are placed on valid bit-boundaries to prevent overlapping.
-* **Exhaustion Guards:** Built-in validation to detect address space overflow before deployment.
+Python
+Broadcast = Network | (~Mask_int & 0xFFFFFFFF)
+🚀 Key Capabilities
+1. Intelligent VLSM Planning
+Descending Allocation: Automatically sorts host requirements to ensure the largest subnets are allocated first, preserving contiguous address space.
 
-### 2. Enterprise-Grade Validation
-* **RFC Compliance:** Validates IPv4 structures and CIDR limits (0-32).
-* **Edge-Case Support:** Handles point-to-point links (/31) and host routes (/32) with specialized guard clauses.
+Boundary Alignment: Ensures subnets are placed on valid bit-boundaries to prevent overlapping.
 
-### 3. Documentation & Inventory
-* **Tabular UI:** Clean, formatted CLI output for immediate architectural review.
-* **CSV Export:** Generate professional documentation for network inventory and record-keeping.
+Exhaustion Guards: Built-in validation to detect address space overflow before deployment.
 
----
+2. Enterprise-Grade Validation
+RFC Compliance: Validates IPv4 structures and CIDR limits (0-32).
 
-## 📦 Getting Started
+Edge-Case Support: Handles point-to-point links (/31) and host routes (/32) with specialized guard clauses.
 
-### Prerequisites
-- Python 3.8 or higher
+3. Documentation & Inventory
+Tabular UI: Clean, formatted CLI output for immediate architectural review.
 
-### Installation
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/kencherian/AetherMask](https://github.com/kencherian/AetherMask)
+CSV Export: Generate professional documentation for network inventory and record-keeping.
+
+📦 Getting Started
+Prerequisites
+Python 3.8 or higher
+
+Installation
+Clone the repository:
+
+Bash
+git clone [https://github.com/kencherian/AetherMask](https://github.com/kencherian/AetherMask)
 Navigate to the project directory:
 
 Bash
@@ -65,17 +72,15 @@ AetherMask/
 🛡 License & Contribution
 Distributed under the MIT License. Contributions to enhance the VLSM algorithm or add IPv6 support are welcome via Pull Requests.
 
-Lead Architect: [Your Name/Ken Cherian]
-
+Lead Architect: Ken Cherian
 Project Goal: Engineering "Zero-Waste" Networks.
 
 
 ---
 
-### Why this is an improvement:
-* **Mathematical Precision:** Using LaTeX for the bitwise operations signals to recruiters that you understand the underlying math, not just the code.
-* **Visual Hierarchy:** Using badges, bold headers, and code blocks makes the document "scannable."
-* **The "Why":** It explains *why* bitwise is better (O(1) efficiency), which is a common talking point in technical interviews.
-* **Professional Language:** Replaced "messy string manipulation" with "decimal-based logic" and used terms like "Contiguous address space" and "Boundary alignment."
+### Final Polish Steps:
+1.  **Delete the old README content** completely to avoid any leftover LaTeX syntax.
+2.  **Paste this new version** and commit it with a clean message: `docs: fix bitwise logic rendering in README`.
+3.  **Check your GitHub page**—the code blocks will now show up with syntax highlighting and perfect clarity.
 
-**PM Note:** Once you update this in your repo, your Project 2 is officially "Market-Ready." Ready to tag the release?
+Everything is officially production-ready. How does the updated preview look on your end?
